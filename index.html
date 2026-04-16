@@ -288,16 +288,22 @@ section[id]:not(#hero):not(#gallery)>.section-inner::-webkit-scrollbar-thumb{bac
 .exp-ul li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--blue-mid);opacity:.8}
 
 /* GALLERY */
-.gallery-section{background:var(--cream);padding:0;display:flex;flex-direction:column}
-.gallery-header{padding:72px 28px 20px;max-width:1060px;margin:0 auto;width:100%;flex:0 0 auto}
-.gallery-filters{position:relative;display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid rgba(29,78,216,.12);box-shadow:0 14px 34px rgba(15,23,42,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.gallery-section{background:var(--cream);padding:52px 0 4px;display:flex;flex-direction:column;justify-content:center}
+.gallery-header{padding:0 28px 18px;max-width:1060px;margin:0 auto;width:100%;flex:0 0 auto;display:block}
+.gallery-header-main{width:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:24px}
+.gallery-heading{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-width:0}
+.gallery-heading .eyebrow{margin-bottom:12px}
+.gallery-heading .rule{margin-bottom:24px}
+.gallery-heading .sec-h{margin-bottom:0}
+.gallery-title-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.gallery-filters{position:relative;display:inline-flex;gap:8px;flex-wrap:wrap;align-self:flex-start;margin-top:0;margin-bottom:0;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.82);border:1px solid rgba(29,78,216,.12);box-shadow:0 14px 34px rgba(15,23,42,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .gallery-filter-indicator{position:absolute;left:0;top:0;border-radius:18px;background:rgba(219,234,254,.88);box-shadow:inset 0 0 0 1px rgba(29,78,216,.12);transition:transform .3s cubic-bezier(.16,1,.3,1),width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),opacity .2s ease;pointer-events:none;opacity:0}
-.filter-btn{position:relative;z-index:1;font-size:14px;padding:10px 16px;border:none;border-radius:18px;background:transparent;color:var(--ink-muted);cursor:pointer;transition:color .2s,background-color .2s;font-family:inherit;letter-spacing:.01em}
+.filter-btn{position:relative;z-index:1;font-size:13px;padding:8px 13px;border:none;border-radius:16px;background:transparent;color:var(--ink-muted);cursor:pointer;transition:color .2s,background-color .2s;font-family:inherit;letter-spacing:.01em}
 .filter-btn:hover{background:rgba(239,246,255,.95);color:var(--blue-dark)}
 .filter-btn.active{background:transparent;color:var(--blue-dark)}
 
-.gallery-outer{max-width:1060px;margin:0 auto;padding:0 28px 24px;width:100%;flex:1;display:flex;flex-direction:column;min-height:0;position:relative}
-.gallery-stage{border-radius:20px;overflow:hidden;border:1px solid var(--border2);box-shadow:0 8px 40px rgba(29,78,216,.08);display:flex;flex:1;min-height:0}
+.gallery-outer{max-width:1060px;margin:0 auto;padding:0 28px;width:100%;flex:0 0 auto;display:flex;flex-direction:column;min-height:0;position:relative}
+.gallery-stage{border-radius:20px;overflow:hidden;border:1px solid var(--border2);box-shadow:0 8px 40px rgba(29,78,216,.08);display:flex;height:clamp(430px,56vh,560px);min-height:0}
 .gallery-slide{display:none;width:100%;min-width:0}
 .gallery-slide.active{display:flex;flex:1;min-height:0;align-items:stretch}
 
@@ -306,7 +312,8 @@ section[id]:not(#hero):not(#gallery)>.section-inner::-webkit-scrollbar-thumb{bac
 .slide-photo-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
 .slide-photo-ph svg{width:32px;height:32px;fill:var(--red);opacity:.35}
 .slide-ph-hint{font-size:12px;color:var(--ink-muted);border:1px dashed var(--border2);padding:5px 16px;border-radius:20px;font-style:italic}
-.slide-photo img{width:100%;height:100%;object-fit:cover}
+.slide-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-photo img.photo-fit-contain{object-fit:contain;padding:18px;background:linear-gradient(180deg,#f8fbff 0%,#eef4ff 100%)}
 .photo-carousel{position:relative;width:100%;height:100%}
 .photo-carousel-item{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.16,1,.3,1)}
 .photo-carousel-item.is-active{opacity:1;pointer-events:auto}
@@ -349,7 +356,7 @@ section[id]:not(#hero):not(#gallery)>.section-inner::-webkit-scrollbar-thumb{bac
 .g-arrow:hover{background:var(--blue);border-color:var(--blue)}
 .g-arrow:hover svg{fill:white}
 .g-arrow svg{width:18px;height:18px;fill:var(--blue);transition:fill .2s}
-.g-dots{display:flex;gap:10px;align-items:center;justify-content:center;padding:12px 0 18px;max-width:1060px;margin:0 auto;flex:0 0 auto;flex-wrap:wrap}
+.g-dots{display:flex;gap:10px;align-items:center;justify-content:center;padding:16px 0 10px;max-width:1060px;margin:0 auto;flex:0 0 auto;flex-wrap:wrap;min-height:32px}
 .g-dot{--pill-width:28px;--pip-count:1;width:8px;height:8px;border-radius:999px;background:rgba(29,78,216,.28);cursor:pointer;border:none;padding:0;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:width .24s cubic-bezier(.16,1,.3,1),height .24s cubic-bezier(.16,1,.3,1),background-color .24s ease,box-shadow .24s ease,opacity .24s ease,transform .24s ease}
 .g-dot.active{background:rgba(29,78,216,.72);transform:scale(1.05)}
 .g-dot-track{display:grid;grid-template-columns:repeat(var(--pip-count),minmax(0,1fr));align-items:center;gap:8px;width:100%;padding:0 10px;opacity:0;transform:scale(.84);transition:opacity .2s ease,transform .2s ease;pointer-events:none}
@@ -377,14 +384,16 @@ section[id]:not(#hero):not(#gallery)>.section-inner::-webkit-scrollbar-thumb{bac
 
 /* AWARDS */
 #awards>.section-inner{justify-content:flex-start;overflow-y:auto}
-.awards-list{margin-top:34px;display:grid;gap:14px}
+.awards-layout{--award-sidecar-width:clamp(320px,34vw,380px);position:relative;margin-top:34px;width:100%;display:grid;grid-template-columns:minmax(0,1fr) 0;column-gap:0;align-items:start;transition:grid-template-columns .32s cubic-bezier(.16,1,.3,1),column-gap .32s cubic-bezier(.16,1,.3,1)}
+.awards-layout.is-preview-open{grid-template-columns:minmax(0,calc(100% - var(--award-sidecar-width) - 24px)) var(--award-sidecar-width);column-gap:24px}
+.awards-list{display:grid;gap:14px;width:100%;min-width:0}
 .award-card{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px;background:linear-gradient(180deg,#ffffff 0%,#ffffff 100%);border:1.5px solid rgba(29,78,216,.12);border-radius:18px;cursor:default;transition:transform .32s cubic-bezier(.16,1,.3,1),box-shadow .32s cubic-bezier(.16,1,.3,1),border-color .3s ease,background .35s ease}
 .award-card::before{content:'';position:absolute;top:-28%;bottom:-28%;left:-34%;width:34%;background:linear-gradient(120deg,rgba(255,255,255,0),rgba(255,255,255,.72),rgba(253,224,71,.24),rgba(255,255,255,0));transform:translateX(-155%) skewX(-18deg);opacity:0;pointer-events:none}
 .award-card:hover{border-color:rgba(217,119,6,.2);box-shadow:0 16px 34px rgba(217,119,6,.08),0 8px 22px rgba(15,23,42,.04);background:linear-gradient(180deg,#ffffff 0%,#fffaf0 100%)}
 .award-card:hover::before{opacity:1;animation:awardSheen 1.45s cubic-bezier(.16,1,.3,1) 1}
 .award-card.is-previewable{cursor:pointer}
-.award-card.is-selected{border-color:rgba(217,119,6,.24);box-shadow:0 18px 38px rgba(217,119,6,.1),0 9px 24px rgba(15,23,42,.05);background:linear-gradient(180deg,#ffffff 0%,#fffaf0 100%)}
-.award-card.is-selected::before{opacity:1;animation:awardSheen 1.45s cubic-bezier(.16,1,.3,1) 1}
+.award-card.is-selected{border-color:rgba(217,119,6,.2);box-shadow:0 16px 34px rgba(217,119,6,.08),0 8px 22px rgba(15,23,42,.04);background:linear-gradient(180deg,#ffffff 0%,#fffaf0 100%)}
+.award-card.is-selected::before{opacity:0;animation:none}
 .award-card:focus-visible{outline:none;border-color:rgba(29,78,216,.32);box-shadow:0 0 0 4px rgba(29,78,216,.12),0 18px 40px rgba(29,78,216,.08)}
 .award-copy{position:relative;z-index:1;flex:1;min-width:0}
 .award-mark{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;min-width:126px;padding-left:18px}
@@ -394,47 +403,84 @@ section[id]:not(#hero):not(#gallery)>.section-inner::-webkit-scrollbar-thumb{bac
 .award-yr{font-size:14px;color:var(--ink-muted);margin-top:6px;transition:color .3s ease,letter-spacing .3s ease,transform .32s cubic-bezier(.16,1,.3,1)}
 .award-big{font-size:40px;font-weight:700;letter-spacing:-.03em;text-align:right;line-height:1;white-space:nowrap;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 48%,var(--blue-mid) 100%);background-size:160% 160%;background-position:0% 50%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent;transition:transform .42s cubic-bezier(.16,1,.3,1),filter .42s cubic-bezier(.16,1,.3,1),background-position .6s ease}
 .award-big-sub{font-size:13px;color:var(--ink-muted);text-align:right;margin-top:4px;transition:color .3s ease,letter-spacing .3s ease,transform .32s cubic-bezier(.16,1,.3,1)}
-.award-card:hover .award-pill,.award-card.is-selected .award-pill{background:rgba(29,78,216,.08);border-color:rgba(29,78,216,.18);box-shadow:0 8px 18px rgba(29,78,216,.08),inset 0 0 0 1px rgba(255,255,255,.35);color:var(--blue-dark);transform:translateY(-1px)}
-.award-card:hover .award-name,.award-card.is-selected .award-name{color:#92400e}
-.award-card:hover .award-yr,.award-card.is-selected .award-yr{color:#78716c;letter-spacing:.02em;transform:translateY(-1px)}
-.award-card:hover .award-big-sub,.award-card.is-selected .award-big-sub{color:#a16207;letter-spacing:.03em;transform:translateY(-1px)}
-.award-card:hover .award-big,.award-card.is-selected .award-big{transform:translateY(-2px) scale(1.03);filter:drop-shadow(0 8px 16px rgba(245,158,11,.24));background:linear-gradient(135deg,#92400e 0%,#d97706 24%,#f59e0b 52%,#fde68a 74%,#b45309 100%);background-size:180% 180%;background-position:100% 50%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
-.award-card:hover .award-mark::before,.award-card.is-selected .award-mark::before{opacity:.56;transform:translateY(-50%) scale(1.02);background:radial-gradient(circle,rgba(250,204,21,.22) 0%,rgba(245,158,11,.1) 32%,rgba(245,158,11,0) 74%)}
-.award-action{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;font-weight:600;color:var(--blue-dark)}
-.award-action::after{content:'↗';font-size:12px;opacity:.78}
-.award-card:not(.is-previewable) .award-action{display:none}
-.awards-preview{margin-top:18px;display:none}
-.awards-preview.is-visible{display:block}
-.award-preview-panel{display:none;padding:26px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(244,248,255,.96));border:1.5px solid rgba(29,78,216,.12);box-shadow:0 18px 40px rgba(29,78,216,.08)}
-.award-preview-panel.is-active{display:block;animation:fUp .45s cubic-bezier(.16,1,.3,1)}
-.award-preview-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
-.award-preview-meta{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.award-preview-title{margin-top:8px;font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--ink)}
-.award-preview-sub{margin-top:8px;font-size:15px;line-height:1.75;color:var(--ink-muted);max-width:760px}
-.award-preview-badge{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:999px;background:rgba(219,234,254,.86);border:1px solid rgba(29,78,216,.12);font-size:12px;font-weight:700;color:var(--blue-dark);white-space:nowrap}
-.award-preview-grid{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.award-article-card{min-width:0;padding:18px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(247,250,255,.96));border:1px solid rgba(29,78,216,.12);box-shadow:0 12px 30px rgba(29,78,216,.08)}
-.award-article-meta{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);opacity:.82}
-.award-article-title{margin-top:8px;font-size:16px;font-weight:600;line-height:1.45;color:var(--ink)}
-.award-article-kicker{margin-top:6px;font-size:13px;line-height:1.7;color:var(--ink-muted)}
-.award-shot{position:relative;margin-top:16px;min-height:210px;padding:14px 14px 16px;border-radius:16px;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);border:1px solid rgba(29,78,216,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);overflow:hidden}
-.award-shot::before{content:'';position:absolute;left:0;right:0;top:0;height:54%;background:linear-gradient(180deg,rgba(219,234,254,.24),rgba(219,234,254,0));pointer-events:none}
-.award-shot-topbar{width:56px;height:11px;border-radius:999px;background:linear-gradient(90deg,rgba(148,163,184,.24),rgba(148,163,184,.06))}
-.award-shot-chip{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.88);border:1px solid rgba(29,78,216,.1);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-dark)}
-.award-shot-cover{height:84px;border-radius:14px;margin-top:14px;background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 44%,#fef3c7 100%);box-shadow:0 10px 22px rgba(29,78,216,.12)}
-.award-shot-avatar{position:absolute;right:18px;top:96px;width:38px;height:38px;border-radius:50%;border:3px solid rgba(255,255,255,.94);background:linear-gradient(135deg,#1d4ed8,#60a5fa);box-shadow:0 8px 18px rgba(29,78,216,.18)}
-.award-shot-lines{display:flex;flex-direction:column;gap:8px;margin-top:18px}
-.award-shot-lines span{display:block;height:8px;border-radius:999px;background:linear-gradient(90deg,rgba(29,78,216,.16),rgba(29,78,216,.05))}
-.award-shot-lines .is-long{width:92%}
-.award-shot-lines .is-mid{width:76%}
-.award-shot-lines .is-short{width:58%}
-.award-shot--scholarship-primary .award-shot-cover{background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 42%,#fde68a 100%)}
-.award-shot--scholarship-secondary .award-shot-cover{background:linear-gradient(135deg,#f8fafc 0%,#dbeafe 48%,#fef3c7 100%)}
-.award-shot--venture-primary .award-shot-cover{background:linear-gradient(135deg,#1d4ed8 0%,#60a5fa 54%,#fde68a 100%)}
-.award-shot--venture-secondary .award-shot-cover{background:linear-gradient(135deg,#eff6ff 0%,#93c5fd 42%,#fdba74 100%)}
-.award-shot--simulation-primary .award-shot-cover{background:linear-gradient(135deg,#0f172a 0%,#2563eb 46%,#fcd34d 100%)}
-.award-shot--simulation-secondary .award-shot-cover{background:linear-gradient(135deg,#dbeafe 0%,#3b82f6 40%,#fef3c7 100%)}
-.award-shot--venture-primary .award-shot-avatar,.award-shot--simulation-primary .award-shot-avatar{background:linear-gradient(135deg,#92400e,#f59e0b)}
+.award-card:hover .award-pill{background:rgba(29,78,216,.08);border-color:rgba(29,78,216,.18);box-shadow:0 8px 18px rgba(29,78,216,.08),inset 0 0 0 1px rgba(255,255,255,.35);color:var(--blue-dark);transform:translateY(-1px)}
+.award-card.is-selected .award-pill{background:rgba(251,191,36,.1);border-color:rgba(217,119,6,.18);box-shadow:0 8px 18px rgba(245,158,11,.08),inset 0 0 0 1px rgba(255,255,255,.35);color:#92400e;transform:translateY(-1px)}
+.award-card:hover .award-name{color:#92400e}
+.award-card.is-selected .award-name{color:#92400e}
+.award-card:hover .award-yr{color:#78716c;letter-spacing:.02em;transform:translateY(-1px)}
+.award-card.is-selected .award-yr{color:#78716c;letter-spacing:.02em;transform:translateY(-1px)}
+.award-card:hover .award-big-sub{color:#a16207;letter-spacing:.03em;transform:translateY(-1px)}
+.award-card.is-selected .award-big-sub{color:#a16207;letter-spacing:.03em;transform:translateY(-1px)}
+.award-card:hover .award-big{transform:translateY(-2px) scale(1.03);filter:drop-shadow(0 8px 16px rgba(245,158,11,.24));background:linear-gradient(135deg,#92400e 0%,#d97706 24%,#f59e0b 52%,#fde68a 74%,#b45309 100%);background-size:180% 180%;background-position:100% 50%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
+.award-card.is-selected .award-big{transform:translateY(-2px) scale(1.03);filter:drop-shadow(0 8px 16px rgba(245,158,11,.24));background:linear-gradient(135deg,#92400e 0%,#d97706 24%,#f59e0b 52%,#fde68a 74%,#b45309 100%);background-size:180% 180%;background-position:100% 50%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
+.award-card.is-selected .award-mark::before{opacity:.56;transform:translateY(-50%) scale(1.02);background:radial-gradient(circle,rgba(250,204,21,.22) 0%,rgba(245,158,11,.1) 32%,rgba(245,158,11,0) 74%)}
+.award-card:hover .award-mark::before{opacity:.56;transform:translateY(-50%) scale(1.02);background:radial-gradient(circle,rgba(250,204,21,.22) 0%,rgba(245,158,11,.1) 32%,rgba(245,158,11,0) 74%)}
+.award-card.is-selected:hover{border-color:rgba(217,119,6,.2);box-shadow:0 16px 34px rgba(217,119,6,.08),0 8px 22px rgba(15,23,42,.04);background:linear-gradient(180deg,#ffffff 0%,#fffaf0 100%)}
+.award-card.is-selected:hover::before{opacity:0;animation:none}
+.award-card.is-selected:hover .award-pill{box-shadow:0 8px 18px rgba(245,158,11,.08),inset 0 0 0 1px rgba(255,255,255,.35);transform:translateY(-1px)}
+.award-card.is-selected:hover .award-name{color:#92400e}
+.award-card.is-selected:hover .award-yr{color:#78716c;letter-spacing:.02em;transform:translateY(-1px)}
+.award-card.is-selected:hover .award-big-sub{color:#a16207;letter-spacing:.03em;transform:translateY(-1px)}
+.award-card.is-selected:hover .award-big{transform:translateY(-2px) scale(1.03);filter:drop-shadow(0 8px 16px rgba(245,158,11,.24));background:linear-gradient(135deg,#92400e 0%,#d97706 24%,#f59e0b 52%,#fde68a 74%,#b45309 100%);background-size:180% 180%;background-position:100% 50%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
+.award-card.is-selected:hover .award-mark::before{opacity:.56;transform:translateY(-50%) scale(1.02);background:radial-gradient(circle,rgba(250,204,21,.22) 0%,rgba(245,158,11,.1) 32%,rgba(245,158,11,0) 74%)}
+.award-sidecar{position:sticky;top:14px;z-index:40;width:100%;height:var(--award-sidecar-height,auto);opacity:0;visibility:hidden;pointer-events:none;transform:translateX(18px);transition:opacity .24s cubic-bezier(.16,1,.3,1),transform .24s cubic-bezier(.16,1,.3,1),visibility .24s}
+.award-sidecar.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0)}
+.award-preview-panel{display:none;height:100%;padding:22px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(244,248,255,.96));border:1.5px solid rgba(29,78,216,.12);box-shadow:0 18px 40px rgba(29,78,216,.08);overflow:hidden;box-sizing:border-box}
+.award-preview-panel.is-active{display:flex;flex-direction:column;animation:fUp .45s cubic-bezier(.16,1,.3,1)}
+.award-preview-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(29,78,216,.1);flex-shrink:0}
+.award-preview-meta{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.award-preview-pager{display:inline-flex;align-items:center;gap:10px;margin-left:auto;padding:6px 10px;border-radius:999px;background:rgba(219,234,254,.72);border:1px solid rgba(29,78,216,.12);white-space:nowrap}
+.award-preview-nav{width:24px;height:24px;border:none;border-radius:999px;background:rgba(255,255,255,.92);color:var(--blue-dark);font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s ease,color .2s ease,opacity .2s ease}
+.award-preview-nav:hover,.award-preview-nav:focus-visible{background:var(--blue);color:white;outline:none}
+.award-preview-nav:disabled{opacity:.38;cursor:default}
+.award-preview-count{font-size:12px;font-weight:700;color:var(--blue-dark);letter-spacing:.04em;min-width:46px;text-align:center}
+.award-report-stage{margin-top:14px;display:flex;flex:1;min-height:0;overflow:hidden}
+.award-report-page{display:none;flex:1;min-height:0}
+.award-report-page.is-active{display:flex;animation:fUp .36s cubic-bezier(.16,1,.3,1)}
+.award-report-scroll{flex:1;min-height:0;overflow-y:auto;padding-right:4px;scrollbar-gutter:stable}
+.award-report-scroll::-webkit-scrollbar{width:8px}
+.award-report-scroll::-webkit-scrollbar-thumb{background:rgba(29,78,216,.16);border-radius:999px}
+.award-report-sheet{position:relative;min-height:max(960px,calc(var(--award-sidecar-height,420px) + 280px));padding:18px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);border:1px solid rgba(29,78,216,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.78),0 16px 34px rgba(29,78,216,.08)}
+.award-report-sheet.has-image{min-height:0;padding:0;background:transparent;border:none;box-shadow:none;overflow:visible}
+.award-report-sheet.has-image::before,.award-report-sheet.has-image::after{display:none}
+.award-report-sheet.has-image>:not(.award-report-image){display:none}
+.award-report-image{display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:18px;border:1px solid rgba(29,78,216,.12);background:white;box-shadow:0 16px 34px rgba(29,78,216,.08)}
+.award-report-sheet::before{content:'';position:absolute;left:0;right:0;top:0;height:30%;background:linear-gradient(180deg,rgba(219,234,254,.22),rgba(219,234,254,0));pointer-events:none}
+.award-report-sheet::after{content:'';position:absolute;left:18px;right:18px;top:58px;height:1px;background:linear-gradient(90deg,rgba(29,78,216,0),rgba(29,78,216,.16),rgba(29,78,216,0));opacity:.55;pointer-events:none}
+.award-report-sheet-header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.award-report-sheet-signal{width:58px;height:11px;border-radius:999px;background:linear-gradient(90deg,rgba(148,163,184,.24),rgba(148,163,184,.06))}
+.award-report-sheet-chip{width:56px;height:22px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(255,255,255,.78));border:1px solid rgba(29,78,216,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.award-report-sheet-hero{height:196px;border-radius:16px;margin-top:16px;box-shadow:0 12px 24px rgba(29,78,216,.14)}
+.award-report-sheet-profile{display:flex;align-items:center;gap:12px;margin-top:18px}
+.award-report-sheet-avatar{width:42px;height:42px;border-radius:50%;border:3px solid rgba(255,255,255,.94);box-shadow:0 8px 18px rgba(29,78,216,.16)}
+.award-report-sheet-meta{display:flex;flex-direction:column;gap:6px;min-width:0}
+.award-report-sheet-meta span{display:block;height:8px;border-radius:999px;background:linear-gradient(90deg,rgba(29,78,216,.18),rgba(29,78,216,.05))}
+.award-report-sheet-meta .is-long{width:150px}
+.award-report-sheet-meta .is-mid{width:96px}
+.award-report-sheet-titleblock{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.award-report-sheet-titleblock span{display:block;height:10px;border-radius:999px;background:linear-gradient(90deg,rgba(15,23,42,.16),rgba(15,23,42,.04))}
+.award-report-sheet-titleblock .is-long{width:92%}
+.award-report-sheet-titleblock .is-mid{width:76%}
+.award-report-sheet-media{height:240px;border-radius:16px;margin-top:18px;box-shadow:0 12px 24px rgba(29,78,216,.12)}
+.award-report-sheet-body{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.award-report-sheet-body span{display:block;height:9px;border-radius:999px;background:linear-gradient(90deg,rgba(29,78,216,.15),rgba(29,78,216,.04))}
+.award-report-sheet-body .is-long{width:94%}
+.award-report-sheet-body .is-mid{width:78%}
+.award-report-sheet-body .is-short{width:58%}
+.award-report-sheet-footer{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.award-report-sheet-card{height:110px;border-radius:14px;background:rgba(255,255,255,.86);border:1px solid rgba(29,78,216,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+.award-report-sheet--venture-1 .award-report-sheet-hero{background:linear-gradient(135deg,#1d4ed8 0%,#60a5fa 54%,#fde68a 100%)}
+.award-report-sheet--venture-1 .award-report-sheet-avatar{background:linear-gradient(135deg,#92400e,#f59e0b)}
+.award-report-sheet--venture-1 .award-report-sheet-media{background:linear-gradient(135deg,#eff6ff 0%,#93c5fd 42%,#fdba74 100%)}
+.award-report-sheet--venture-2 .award-report-sheet-hero{background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 48%,#fde68a 100%)}
+.award-report-sheet--venture-2 .award-report-sheet-avatar{background:linear-gradient(135deg,#1d4ed8,#60a5fa)}
+.award-report-sheet--venture-2 .award-report-sheet-media{background:linear-gradient(135deg,#f8fafc 0%,#dbeafe 44%,#fef3c7 100%)}
+.award-report-sheet--simulation-1 .award-report-sheet-hero{background:linear-gradient(135deg,#0f172a 0%,#2563eb 46%,#fcd34d 100%)}
+.award-report-sheet--simulation-1 .award-report-sheet-avatar{background:linear-gradient(135deg,#92400e,#f59e0b)}
+.award-report-sheet--simulation-1 .award-report-sheet-media{background:linear-gradient(135deg,#dbeafe 0%,#3b82f6 40%,#fef3c7 100%)}
+.award-report-sheet--simulation-2 .award-report-sheet-hero{background:linear-gradient(135deg,#eff6ff 0%,#93c5fd 34%,#fde68a 100%)}
+.award-report-sheet--simulation-2 .award-report-sheet-avatar{background:linear-gradient(135deg,#1d4ed8,#60a5fa)}
+.award-report-sheet--simulation-2 .award-report-sheet-media{background:linear-gradient(135deg,#e2e8f0 0%,#dbeafe 42%,#fde68a 100%)}
 
 /* CONTACT */
 .contact-main{display:flex;flex-direction:column;justify-content:center;flex:1;padding-bottom:24px}
@@ -456,10 +502,18 @@ body.lang-zh [data-en]{display:none}
 
 @media(max-width:900px){
   .edu-sidecar{display:none}
+  .awards-layout,.awards-layout.is-preview-open{grid-template-columns:1fr;column-gap:0}
+  .award-sidecar{position:static;right:auto;top:auto;width:100%;height:auto;overflow:visible;margin-top:16px;transform:none;display:none}
+  .award-sidecar.is-visible{display:block;opacity:1;visibility:visible;pointer-events:auto;transform:none}
 }
 
 @media(max-width:980px){
   section[id]:not(#hero):not(#gallery)>.section-inner{overflow-y:auto}
+  .gallery-section{padding:0;justify-content:flex-start}
+  .gallery-header{padding:32px 28px 18px}
+  .gallery-header-main{align-items:flex-start;justify-content:center}
+  .gallery-outer{padding:0 28px 24px;flex:1}
+  .gallery-stage{height:auto;flex:1}
   .gallery-slide.active{flex-direction:column}
   .slide-photo{width:100%;height:auto;flex:0 0 auto}
   .photo-view{aspect-ratio:16/8;flex:none}
@@ -472,8 +526,7 @@ body.lang-zh [data-en]{display:none}
   .award-mark{align-items:flex-start;min-width:0;padding-left:0}
   .award-mark::before{left:0;right:auto;transform:translateY(-50%) scale(.94)}
   .award-big,.award-big-sub{text-align:left}
-  .award-preview-head{flex-direction:column;align-items:flex-start}
-  .award-preview-grid{grid-template-columns:1fr}
+  .award-preview-top{align-items:center;flex-direction:row}
 }
 
 @media(max-width:700px){
@@ -502,10 +555,12 @@ body.lang-zh [data-en]{display:none}
   .edu-layout,.exp-list,.skills-grid,.awards-list{margin-top:28px}
   .contact-main{justify-content:flex-start}
   .contact-subtext{margin-bottom:26px}
-  .gallery-header{padding:64px 18px 18px}
+  .gallery-header{padding:32px 18px 18px}
+  .gallery-header-main{gap:20px}
+  .gallery-title-row{gap:14px}
   .gallery-outer{padding:0 18px 18px}
-  .gallery-filters{gap:8px;padding:8px 10px;border-radius:24px}
-  .filter-btn{padding:9px 14px 16px}
+  .gallery-filters{gap:6px;padding:7px 9px;border-radius:24px}
+  .filter-btn{font-size:12.5px;padding:8px 12px 9px}
   .photo-meta-text{font-size:12px}
   .photo-inline-count{min-width:32px;font-size:10px}
   .photo-inline-arrow{font-size:13px}
@@ -517,8 +572,11 @@ body.lang-zh [data-en]{display:none}
   .contact-footer{height:auto;padding:18px;flex-direction:column;align-items:flex-start;gap:8px;text-align:left}
   .award-card{padding:26px 22px}
   .award-preview-panel{padding:20px}
-  .award-article-card{padding:16px}
-  .award-shot{min-height:188px}
+  .award-report-scroll{max-height:none;padding-right:0}
+  .award-report-sheet{padding:16px}
+  .award-report-sheet-hero{height:150px}
+  .award-report-sheet-media{height:180px}
+  .award-report-sheet-footer{grid-template-columns:1fr}
 }
 
 /* ===== APPLE-STYLE ENHANCED ANIMATIONS ===== */
@@ -665,7 +723,7 @@ body.lang-zh [data-en]{display:none}
     <span class="meteor" style="--top:58%;--left:28%;--dur:28s;--delay:-22s;--dx:174px;--dy:102px;--angle:23deg"></span>
   </div>
   <div class="hero-content">
-    <div class="hero-photo-wrap"><div class="hero-photo"><img src="/Users/jiening/Downloads/profile.jpg" alt="侯洁宁"></div></div>
+    <div class="hero-photo-wrap"><div class="hero-photo"><img src="images/IMG_0001.jpg" alt="侯洁宁"></div></div>
     <div class="hero-eyebrow" data-zh></div>
     <div class="hero-eyebrow" data-en>Fudan University · Malaysia</div>
     <h1 class="hero-name" data-zh>侯洁宁</h1>
@@ -772,19 +830,25 @@ body.lang-zh [data-en]{display:none}
 <!-- GALLERY — cream -->
 <section id="gallery" class="gallery-section">
   <div class="gallery-header">
-    <p class="eyebrow reveal" data-zh>经历，让人更立体</p><p class="eyebrow reveal" data-en>Experiences That Define Me</p>
-    <div class="rule rule-gold reveal"></div>
-    <h2 class="sec-h reveal" data-zh>相册</h2><h2 class="sec-h reveal" data-en>Gallery</h2>
-    <div class="gallery-filters reveal" id="filterBtns">
-      <span class="gallery-filter-indicator" id="galleryFilterIndicator" aria-hidden="true"></span>
-      <button class="filter-btn active" data-filter="activity" data-zh>活动</button><button class="filter-btn active" data-filter="activity" data-en>Activities</button>
-      <button class="filter-btn" data-filter="competition" data-zh>竞赛</button><button class="filter-btn" data-filter="competition" data-en>Competition</button>
+    <div class="gallery-header-main">
+      <div class="gallery-heading">
+        <p class="eyebrow reveal" data-zh>经历，让人更立体</p><p class="eyebrow reveal" data-en>Experiences That Define Me</p>
+        <div class="rule rule-gold reveal"></div>
+        <div class="gallery-title-row">
+          <h2 class="sec-h reveal" data-zh>相册</h2><h2 class="sec-h reveal" data-en>Gallery</h2>
+          <div class="gallery-filters reveal" id="filterBtns">
+            <span class="gallery-filter-indicator" id="galleryFilterIndicator" aria-hidden="true"></span>
+            <button class="filter-btn active" data-filter="activity" data-zh>活动</button><button class="filter-btn active" data-filter="activity" data-en>Activities</button>
+            <button class="filter-btn" data-filter="competition" data-zh>竞赛</button><button class="filter-btn" data-filter="competition" data-en>Competition</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="gallery-outer">
     <div class="gallery-stage" id="gStage">
-
+<!-- 
       <div class="gallery-slide active" data-cat="work" data-photo-surface="#edf3fb" data-photo-surface-strong="#f8fbff" data-photo-accent="#1d4ed8">
         <div class="slide-photo">
           <div class="slide-photo-ph" style="background:#f0ece6" data-caption-zh="会议主视觉或会场全景" data-caption-en="Conference key visual or venue overview">
@@ -797,28 +861,31 @@ body.lang-zh [data-en]{display:none}
           </div></div>
         <div class="slide-detail"><div class="slide-top-row"><span class="slide-tag" data-zh>工作经历</span><span class="slide-tag" data-en>Work</span><span class="slide-date">2025</span></div><div class="slide-title" data-zh>复星医药集团中期会议</div><div class="slide-title" data-en>Fosun Pharma Mid-Year Conference</div><div class="slide-role" data-zh>集团办公室实习生</div><div class="slide-role" data-en>Group Office Intern</div><div class="slide-desc" data-zh>作为集团办公室实习生，深度参与集团中期会议的全程筹备工作，负责撰写活动方案与会议纪要、协调企业参访接待，并协助优化《会议管理体系》，将整个会议流程标准化落实。</div><div class="slide-desc" data-en>As a Group Office intern, I was deeply involved in preparing the mid-year conference — drafting event materials and meeting minutes, coordinating corporate visit receptions, and helping optimize the Meeting Management System to standardize the entire workflow.</div></div>
       </div>
-
+-->
       <div class="gallery-slide" data-cat="work" data-photo-surface="#eef4ff" data-photo-surface-strong="#f8fbff" data-photo-accent="#2563eb">
         <div class="slide-photo">
-          <img src="/Users/jiening/Downloads/Shanghai Forum 2023.JPG" alt="上海论坛" data-caption-zh="上海论坛主会场现场" data-caption-en="Main venue at the Shanghai Forum">
+          <img src="images/IMG_0006.JPG" alt="上海论坛" data-caption-zh="与马来西亚前任财务部长Dato Mustapa Mohamed在2023上海论坛中的合照" data-caption-en="Photo with Former Minister of Finance in Shanghai Forum 2023">
+          <img src="images/IMG_0007.jpg" alt="上海论坛2023" data-caption-zh="2023上海论坛" data-caption-en="Shanghai Forum 2023">
+          <img src="images/IMG_0008.jpg" alt="上海论坛2024" data-caption-zh="2025上海论坛" data-caption-en="Shanghai Forum 2025">
+          
         </div>
         <div class="slide-detail">
           <div class="slide-top-row">
           <span class="slide-tag" data-zh>工作经历</span>
           <span class="slide-tag" data-en>Work</span>
-          <span class="slide-date">2023-2024</span></div>
-          <div class="slide-title" data-zh>上海论坛（连续参与两届）</div>
-          <div class="slide-title" data-en>Shanghai Forum (Two Editions)</div>
-          <div class="slide-role" data-zh>项目管理助理 · 复旦大学发展研究院</div>
-          <div class="slide-role" data-en>Project Management Assistant · Fudan Development Institute</div>
-          <div class="slide-desc" data-zh>连续参与 2023、2024 两届上海论坛的筹备与运营，负责收集各国驻沪领事馆信息、拟写并发送邀请函、协助嘉宾注册与现场接待，并参与整理嘉宾观点集萃，支持论坛顺利举办。</div>
+          <span class="slide-date">2023, 2025</span></div>
+          <div class="slide-title" data-zh>上海论坛</div>
+          <div class="slide-title" data-en>Shanghai Forum</div>
+          <div class="slide-role" data-zh>志愿者</div>
+          <div class="slide-role" data-en>Student Volunteer</div>
+          <div class="slide-desc" data-zh>连续参与 2023、2025 两届上海论坛的筹备与运营，负责收集各国驻沪领事馆信息、拟写并发送邀请函、负责机场贵宾接待与嘉宾注册，参与整理嘉宾观点集萃。</div>
           <div class="slide-desc" data-en>Supported the 2023 and 2024 editions of the Shanghai Forum, handling consulate research, invitation drafting, guest registration, on-site reception, and summary materials for guest insights.</div>
         </div>
       </div>
 
       <div class="gallery-slide" data-cat="volunteer" data-photo-surface="#f7f1e9" data-photo-surface-strong="#fffaf5" data-photo-accent="#b45309">
         <div class="slide-photo">
-          <img src="/Users/jiening/Downloads/IMG_0646.JPG" alt="2025 中马商业论坛现场照片" data-caption-zh="论坛签到与接待现场" data-caption-en="Guest registration and reception area">
+          <img src="images/IMG_0009.JPG" alt="2025 中马商业论坛现场照片" data-caption-zh="论坛签到与接待现场" data-caption-en="Guest registration and reception area">
         </div>
         <div class="slide-detail">
           <div class="slide-top-row">
@@ -828,7 +895,7 @@ body.lang-zh [data-en]{display:none}
           </div>
           <div class="slide-title" data-zh>2025 中马商业论坛</div>
           <div class="slide-title" data-en>2025 Malaysia-China Business Forum</div>
-          <div class="slide-role" data-zh>志愿者 · 嘉宾签到</div>
+          <div class="slide-role" data-zh>志愿者</div>
           <div class="slide-role" data-en>Volunteer · Guest Registration</div>
           <div class="slide-desc" data-zh>担任论坛志愿者，负责现场嘉宾签到工作，与志愿团队密切协作确保接待环节有序进行，同时近距离感受中马两国商界的交流互动。</div>
           <div class="slide-desc" data-en>Volunteered at the forum managing on-site guest registration, working closely with the volunteer team to ensure smooth reception while gaining firsthand exposure to Malaysian-Chinese business exchanges.</div></div>
@@ -836,37 +903,23 @@ body.lang-zh [data-en]{display:none}
 
       <div class="gallery-slide" data-cat="volunteer" data-photo-surface="#f8eef4" data-photo-surface-strong="#fff8fb" data-photo-accent="#be185d">
         <div class="slide-photo">
-          <div class="slide-photo-ph" style="background:#f5e8f0" data-caption-zh="嘉宾签到区" data-caption-en="Guest check-in desk">
-            <span class="slide-ph-hint" data-zh>替换为工作照 1</span>
-            <span class="slide-ph-hint" data-en>Replace with event photo 1</span>
-          </div>
-          <div class="slide-photo-ph" style="background:#f2e5ed" data-caption-zh="晚宴主会场" data-caption-en="Main banquet hall">
-            <span class="slide-ph-hint" data-zh>替换为工作照 2</span>
-            <span class="slide-ph-hint" data-en>Replace with event photo 2</span>
-          </div>
-          <div class="slide-photo-ph" style="background:#f0e2ea" data-caption-zh="抽奖礼品分发环节" data-caption-en="Lucky draw prize distribution">
-            <span class="slide-ph-hint" data-zh>替换为工作照 3</span>
-            <span class="slide-ph-hint" data-en>Replace with event photo 3</span>
-          </div>
-          <div class="slide-photo-ph" style="background:#eedee8" data-caption-zh="活动结束后的团队合影" data-caption-en="Team photo after the event">
-            <span class="slide-ph-hint" data-zh>替换为工作照 4</span>
-            <span class="slide-ph-hint" data-en>Replace with event photo 4</span>
-          </div>
+          <img src="images/IMG_0010.JPG" alt="学生志愿者与中马商会副会长合照" data-caption-zh="学生志愿者与中马商会副会长合照" data-caption-en="Group Photo of Students Volunteer with MayCham China Vice Chairman">
+          <img src="images/IMG_0011.JPG" alt="签到组合照" data-caption-zh="签到组合照" data-caption-en="Grop Photo of Students Volunteer">
         </div>
         <div class="slide-detail"><div class="slide-top-row"><span class="slide-tag" data-zh>志愿活动</span><span class="slide-tag" data-en>Volunteer</span><span class="slide-date">2024</span></div><div class="slide-title" data-zh>马来西亚 68 周年国庆晚宴</div><div class="slide-title" data-en>Malaysia 68th National Day Gala Dinner</div><div class="slide-role" data-zh>志愿者 · 签到及幸运抽奖礼品分发</div><div class="slide-role" data-en>Volunteer · Check-in & Lucky Draw Distribution</div><div class="slide-desc" data-zh>参与马来西亚驻上海总领事馆主办的国庆晚宴志愿服务，负责嘉宾签到与幸运抽奖礼物分发，在他乡感受家国情怀，连接在沪马来西亚社群。</div><div class="slide-desc" data-en>Volunteered at the National Day gala hosted by the Malaysian Consulate General in Shanghai, managing guest check-in and distributing lucky draw prizes — a meaningful moment connecting with the Malaysian community far from home.</div></div>
       </div>
 
       <div class="gallery-slide" data-cat="culture" data-photo-surface="#edf6ff" data-photo-surface-strong="#f8fbff" data-photo-accent="#2563eb">
         <div class="slide-photo">
-          <img src="/Users/jiening/Downloads/IMG_8376.JPG" alt="表演照" data-caption-zh="鼓乐表演上场瞬间" data-caption-en="Stepping on stage for the drum performance">
-          <img src="/Users/jiening/Downloads/IMG_8380.JPG" alt="表演照" data-caption-zh="演出进行中" data-caption-en="Mid-performance">
-          <img src="/Users/jiening/Downloads/IMG_8346.JPG" alt="大合照" data-caption-zh="活动结束后的合影留念" data-caption-en="Group photo after the event">
+          <img src="images/IMG_0012.JPG" alt="表演照" data-caption-zh="表演瞬间" data-caption-en="Stepping on stage for the drum performance">
+          <img src="images/IMG_0013.JPG" alt="表演照" data-caption-zh="表演瞬间" data-caption-en="Mid-performance">
+          <img src="images/IMG_0014.JPG" alt="大合照" data-caption-zh="活动结束后与复旦校领导和观影学生的合影留念" data-caption-en="Group photo after the event">
           </div>
         <div class="slide-detail"><div class="slide-top-row">
           <span class="slide-tag" data-zh>文化表演</span>
           <span class="slide-tag" data-en>Performance</span>
-          <span class="slide-date" data-zh>2024.11</span>
-          <span class="slide-date" data-en>Nov 2024</span>
+          <span class="slide-date" data-zh>2024</span>
+          <span class="slide-date" data-en>2024</span>
         </div><div class="slide-title" data-zh>感知中国 · 中国鼓</div>
         <div class="slide-title" data-en>Perceiving China · Chinese Drum</div>
         <div class="slide-role" data-zh>表演者</div>
@@ -875,47 +928,10 @@ body.lang-zh [data-en]{display:none}
         <div class="slide-desc" data-en>Performed at the "Perceiving China" cultural event, presenting the 24 Solar Terms Drum — a percussion art form uniquely created by Malaysian Chinese, fusing the 24 solar terms with traditional drumming and celebrating Chinese-Malaysian cultural fusion.</div></div>
       </div>
 
-      <div class="gallery-slide" data-cat="competition" data-photo-surface="#eef4ff" data-photo-surface-strong="#f8fbff" data-photo-accent="#1d4ed8">
-        <div class="slide-photo">
-          <img src="/Users/jiening/Downloads/IMG_7308.JPG" alt="决赛选手大合照" data-caption-zh="决赛选手合影" data-caption-en="Finalists' group photo">
-          <img src="/Users/jiening/Downloads/IMG_7255.JPG" alt="决赛第一环节" data-caption-zh="决赛第一环节" data-caption-en="Opening round of the final">
-          <img src="/Users/jiening/Downloads/IMG_7268.JPG" alt="决赛第二环节" data-caption-zh="决赛答辩与策略展示" data-caption-en="Strategy presentation and Q&A">
-          <img src="/Users/jiening/Downloads/IMG_7401.JPG" alt="颁奖典礼" data-caption-zh="颁奖时刻" data-caption-en="Award ceremony moment">
-        </div>
-
-        <div class="slide-detail">
-          <div class="slide-top-row">
-            <span class="slide-tag" data-zh>竞赛</span>
-            <span class="slide-tag" data-en>Competition</span>
-            <span class="slide-date">2024</span>
-          </div>
-          <div class="slide-title-row" data-zh>
-            <div class="slide-title">国际商务决策模拟大赛</div>
-            <div class="slide-award">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg><span>一等奖</span>
-            </div>
-          </div>
-          <div class="slide-title-row" data-en>
-            <div class="slide-title">CESIM Business Simulation Competition (1st Edition)</div>
-            <div class="slide-award"><svg viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <span>1st Place</span>
-          </div></div>
-          <div class="slide-role" data-zh>参赛选手 · 队长</div>
-          <div class="slide-role" data-en>Competitor</div>
-          <div class="slide-desc" data-zh>涵盖全国32所院校、67国参赛选手共117支队伍的国际商务模拟赛事。基于CESIM平台完成符合真实场景的国际商务模拟决策，并就相关决策进行英文商业汇报，从决赛30支队伍中脱颖而出荣获一等奖。</div>
-          <div class="slide-desc" data-en>Competed in the International Business Decision Simulation Competition for the first time, collaborating with my team on market strategies and financial analysis — winning second place in the international competition.</div>
-          </div>
-      </div>
-
       <div class="gallery-slide" data-cat="competition" data-photo-surface="#fff4ea" data-photo-surface-strong="#fffaf5" data-photo-accent="#c2410c">
         <div class="slide-photo">
-          <img src="/Users/jiening/Downloads/789.JPG" alt="创新创业大赛小组合照" data-caption-zh="团队赛后合影" data-caption-en="Team photo after the competition">
-          <img src="/Users/jiening/Downloads/791.JPG" alt="创新创业大赛" data-caption-zh="项目路演现场" data-caption-en="Live pitch session">
-          <img src="/Users/jiening/Downloads/PPT Screenshot.JPG" alt="创新创业大赛" data-caption-zh="项目展示页截图" data-caption-en="Project deck screenshot">
+          <img src="images/IMG_0015.JPG" alt="创新创业大赛小组合照" data-caption-zh="团队赛前合影" data-caption-en="Team photo before the competition">
+          <img src="images/IMG_0016.JPG" alt="创新创业大赛" data-caption-zh="项目路演现场" data-caption-en="Live pitch session">
         </div>
         <div class="slide-detail">
           <div class="slide-top-row">
@@ -947,6 +963,43 @@ body.lang-zh [data-en]{display:none}
           <div class="slide-desc" data-zh>带领团队提出「Silk Road Halal」创业项目，以古丝绸之路贸易路线为灵感，探索清真食品跨境电商的商业机会，聚焦穆斯林消费群体需求，提出可落地的供应链与平台化解决方案。</div>
           <div class="slide-desc" data-en>Led a team presenting "Silk Road Halal" — a startup concept inspired by the ancient Silk Road, exploring cross-border e-commerce opportunities in the halal food market with a practical supply chain and platform solution for Muslim consumers.</div>
         </div>
+      </div>
+
+      <div class="gallery-slide" data-cat="competition" data-photo-surface="#eef4ff" data-photo-surface-strong="#f8fbff" data-photo-accent="#1d4ed8">
+        <div class="slide-photo">
+          <img src="images/IMG_0017.JPG" alt="决赛选手大合照" data-caption-zh="决赛选手合影" data-caption-en="Finalists' group photo">
+          <img class="photo-fit-contain" src="images/IMG_0018.JPG" alt="决赛" data-caption-zh="本人绘制的决赛团队介绍海报" data-caption-en="Award ceremony moment">
+          <img src="images/IMG_0019.JPG" alt="决赛" data-caption-zh="决赛商务决策操作环节" data-caption-en="Opening round of the final">
+          <img src="images/IMG_0020.JPG" alt="决赛" data-caption-zh="决赛策略展示答辩环节" data-caption-en="Strategy presentation and Q&A">
+          <img src="images/IMG_0021.JPG" alt="颁奖典礼" data-caption-zh="领奖合照" data-caption-en="Award ceremony moment">
+        </div>
+
+        <div class="slide-detail">
+          <div class="slide-top-row">
+            <span class="slide-tag" data-zh>竞赛</span>
+            <span class="slide-tag" data-en>Competition</span>
+            <span class="slide-date">2024</span>
+          </div>
+          <div class="slide-title-row" data-zh>
+            <div class="slide-title">国际商务决策模拟大赛</div>
+            <div class="slide-award">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg><span>一等奖</span>
+            </div>
+          </div>
+          <div class="slide-title-row" data-en>
+            <div class="slide-title">CESIM Business Simulation Competition (1st Edition)</div>
+            <div class="slide-award"><svg viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <span>1st Place</span>
+          </div></div>
+          <div class="slide-role" data-zh>参赛选手 · 队长</div>
+          <div class="slide-role" data-en>Competitor</div>
+          <div class="slide-desc" data-zh>涵盖全国32所院校、67国参赛选手共117支队伍的国际商务模拟赛事。基于CESIM平台完成符合真实场景的国际商务模拟决策，并就相关决策进行英文商业汇报，从决赛30支队伍中脱颖而出荣获一等奖。</div>
+          <div class="slide-desc" data-en>Competed in the International Business Decision Simulation Competition for the first time, collaborating with my team on market strategies and financial analysis — winning second place in the international competition.</div>
+          </div>
       </div>
 
     </div>
@@ -981,93 +1034,114 @@ body.lang-zh [data-en]{display:none}
     <p class="eyebrow reveal" data-zh>成就</p><p class="eyebrow reveal" data-en>Achievements</p>
     <div class="rule rule-red reveal"></div>
     <h2 class="sec-h reveal" data-zh>获奖荣誉</h2><h2 class="sec-h reveal" data-en>Awards & Honours</h2>
-    <div class="awards-list">
-      <div class="award-card reveal d1">
-        <div class="award-copy"><div class="award-pill" data-zh>奖学金</div><div class="award-pill" data-en>Scholarship</div><div class="award-name" data-zh>中国政府奖学金 · 高水平研究生项目</div><div class="award-name" data-en>Chinese Government Scholarship · High-Level Graduate Program</div><div class="award-yr">2023 – 2026</div></div>
-        <div class="award-mark"><div class="award-big" data-zh>全额</div><div class="award-big" data-en>Full</div><div class="award-big-sub" data-zh>奖学金</div><div class="award-big-sub" data-en>Scholarship</div></div>
+    <div class="awards-layout">
+      <div class="awards-list">
+        <div class="award-card reveal d1">
+          <div class="award-copy"><div class="award-pill" data-zh>奖学金</div><div class="award-pill" data-en>Scholarship</div><div class="award-name" data-zh>中国政府奖学金 · 高水平研究生项目</div><div class="award-name" data-en>Chinese Government Scholarship · High-Level Graduate Program</div><div class="award-yr">2023 – 2026</div></div>
+          <div class="award-mark"><div class="award-big" data-zh>全额</div><div class="award-big" data-en>Full</div><div class="award-big-sub" data-zh>奖学金</div><div class="award-big-sub" data-en>Scholarship</div></div>
+        </div>
+        <div class="award-card is-previewable reveal d2" data-preview-target="venture" tabindex="0" role="button" aria-expanded="false">
+          <div class="award-copy"><div class="award-pill" data-zh>竞赛</div><div class="award-pill" data-en>Competition</div><div class="award-name" data-zh>复旦大学留学生创新创业大赛</div><div class="award-name" data-en>Fudan University International Students Innovation and Entrepreneurship Competition</div><div class="award-yr">2026.03</div></div>
+          <div class="award-mark"><div class="award-big" data-zh>三等</div><div class="award-big" data-en>3rd</div><div class="award-big-sub" data-zh>奖</div><div class="award-big-sub" data-en>Place</div></div>
+        </div>
+        <div class="award-card is-previewable reveal d3" data-preview-target="simulation" tabindex="0" role="button" aria-expanded="false">
+          <div class="award-copy"><div class="award-pill" data-zh>竞赛</div><div class="award-pill" data-en>Competition</div><div class="award-name" data-zh>来华留学生国际商务决策模拟大赛暨尖烽时刻国际赛决赛</div><div class="award-name" data-en>International Business Simulation Competition</div><div class="award-yr">2024.11</div></div>
+          <div class="award-mark"><div class="award-big" data-zh>一等</div><div class="award-big" data-en>1st</div><div class="award-big-sub" data-zh>奖</div><div class="award-big-sub" data-en>Place</div></div>
+        </div>
       </div>
-      <div class="award-card is-previewable is-selected reveal d2" data-preview-target="venture" tabindex="0" role="button" aria-pressed="true">
-        <div class="award-copy"><div class="award-pill" data-zh>竞赛</div><div class="award-pill" data-en>Competition</div><div class="award-name" data-zh>复旦大学留学生创新创业大赛</div><div class="award-name" data-en>Fudan University International Students Innovation and Entrepreneurship Competition</div><div class="award-yr">2026.03</div><div class="award-action" data-zh>点击查看公众号截图</div><div class="award-action" data-en>View article previews</div></div>
-        <div class="award-mark"><div class="award-big" data-zh>三等</div><div class="award-big" data-en>3rd</div><div class="award-big-sub" data-zh>奖</div><div class="award-big-sub" data-en>Place</div></div>
-      </div>
-      <div class="award-card is-previewable reveal d3" data-preview-target="simulation" tabindex="0" role="button" aria-pressed="false">
-        <div class="award-copy"><div class="award-pill" data-zh>竞赛</div><div class="award-pill" data-en>Competition</div><div class="award-name" data-zh>来华留学生国际商务决策模拟大赛暨尖烽时刻国际赛决赛</div><div class="award-name" data-en>International Business Simulation Competition</div><div class="award-yr">2024.11</div><div class="award-action" data-zh>点击查看公众号截图</div><div class="award-action" data-en>View article previews</div></div>
-        <div class="award-mark"><div class="award-big" data-zh>一等</div><div class="award-big" data-en>1st</div><div class="award-big-sub" data-zh>奖</div><div class="award-big-sub" data-en>Place</div></div>
-      </div>
-    </div>
-    <div class="awards-preview reveal d4 is-visible" id="awardsPreview">
-      <div class="award-preview-panel is-active" data-preview-panel="venture">
-        <div class="award-preview-head">
-          <div>
+      <aside class="award-sidecar" id="awardPreview" aria-live="polite">
+        <div class="award-preview-panel" data-preview-panel="venture">
+          <div class="award-preview-top">
             <div class="award-preview-meta" data-zh>相关报道</div><div class="award-preview-meta" data-en>Related Coverage</div>
-            <div class="award-preview-title" data-zh>复旦大学留学生创新创业大赛</div><div class="award-preview-title" data-en>Fudan Innovation & Entrepreneurship Competition</div>
-            <div class="award-preview-sub" data-zh>只保留有公众号素材的奖项预览。这里目前是稳定版：卡片不换位，点击后只切换下方报道区域。</div><div class="award-preview-sub" data-en>Only awards with article assets keep a preview panel. Cards stay fixed; clicking only switches the coverage area below.</div>
-          </div>
-          <div class="award-preview-badge" data-zh>2 张截图位</div><div class="award-preview-badge" data-en>2 Preview Slots</div>
-        </div>
-        <div class="award-preview-grid">
-          <div class="award-article-card">
-            <div class="award-article-meta" data-zh>公众号文章预览</div><div class="award-article-meta" data-en>Article Preview</div>
-            <div class="award-article-title" data-zh>“Silk Road Halal” 路演现场与项目展示</div><div class="award-article-title" data-en>Silk Road Halal Pitch Day</div>
-            <div class="award-article-kicker" data-zh>这里可以直接替换成比赛现场、项目海报、台上路演的公众号整图截图。</div><div class="award-article-kicker" data-en>Replace this slot with a full article screenshot of the live pitch, poster, or stage presentation.</div>
-            <div class="award-shot award-shot--venture-primary">
-              <div class="award-shot-topbar"></div>
-              <div class="award-shot-chip">Article 01</div>
-              <div class="award-shot-cover"></div>
-              <div class="award-shot-avatar"></div>
-              <div class="award-shot-lines"><span class="is-long"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-mid"></span><span class="is-short"></span></div>
+            <div class="award-preview-pager" data-report-pager>
+              <button class="award-preview-nav" type="button" data-report-dir="-1" aria-label="Previous report">‹</button>
+              <span class="award-preview-count" data-report-count>1 / 2</span>
+              <button class="award-preview-nav" type="button" data-report-dir="1" aria-label="Next report">›</button>
             </div>
           </div>
-          <div class="award-article-card">
-            <div class="award-article-meta" data-zh>公众号文章预览</div><div class="award-article-meta" data-en>Article Preview</div>
-            <div class="award-article-title" data-zh>答辩纪要、获奖名单与团队合照</div><div class="award-article-title" data-en>Judging Notes and Team Highlights</div>
-            <div class="award-article-kicker" data-zh>第二张适合放获奖通报、赛后总结或团队采访的公众号截图。</div><div class="award-article-kicker" data-en>The second slot suits a results post, recap, or team interview screenshot.</div>
-            <div class="award-shot award-shot--venture-secondary">
-              <div class="award-shot-topbar"></div>
-              <div class="award-shot-chip">Article 02</div>
-              <div class="award-shot-cover"></div>
-              <div class="award-shot-avatar"></div>
-              <div class="award-shot-lines"><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-mid"></span><span class="is-short"></span></div>
-            </div>
+          <div class="award-report-stage">
+            <article class="award-report-page is-active">
+              <div class="award-report-scroll">
+                <div class="award-report-sheet award-report-sheet--venture-1">
+                  <img
+                    src="images/IMG_0002.JPG"
+                    alt="复旦大学留学生创新创业大赛公众号截图"
+                    class="award-report-image"
+                  />
+                  <div class="award-report-sheet-header">
+                    <div class="award-report-sheet-signal"></div>
+                    <div class="award-report-sheet-chip" aria-hidden="true"></div>
+                  </div>
+                  <div class="award-report-sheet-hero"></div>
+                  <div class="award-report-sheet-profile">
+                    <div class="award-report-sheet-avatar"></div>
+                    <div class="award-report-sheet-meta"><span class="is-long"></span><span class="is-mid"></span></div>
+                  </div>
+                  <div class="award-report-sheet-titleblock"><span class="is-long"></span><span class="is-mid"></span></div>
+                  <div class="award-report-sheet-media"></div>
+                  <div class="award-report-sheet-body"><span class="is-long"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-long"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-long"></span><span class="is-mid"></span></div>
+                  <div class="award-report-sheet-footer"><div class="award-report-sheet-card"></div><div class="award-report-sheet-card"></div></div>
+                </div>
+              </div>
+            </article>
+            <article class="award-report-page">
+              <div class="award-report-scroll">
+                <div class="award-report-sheet award-report-sheet--venture-2">
+                  <img
+                    src="images/IMG_0003.JPG"
+                    alt="复旦大学留学生创新创业大赛公众号截图"
+                    class="award-report-image"
+                  />
+                  <div class="award-report-sheet-header">
+                    <div class="award-report-sheet-signal"></div>
+                    <div class="award-report-sheet-chip" aria-hidden="true"></div>
+                  </div>
+                  <div class="award-report-sheet-hero"></div>
+                  <div class="award-report-sheet-profile">
+                    <div class="award-report-sheet-avatar"></div>
+                    <div class="award-report-sheet-meta"><span class="is-long"></span><span class="is-mid"></span></div>
+                  </div>
+                  <div class="award-report-sheet-titleblock"><span class="is-long"></span><span class="is-long"></span></div>
+                  <div class="award-report-sheet-media"></div>
+                  <div class="award-report-sheet-body"><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-long"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span></div>
+                  <div class="award-report-sheet-footer"><div class="award-report-sheet-card"></div><div class="award-report-sheet-card"></div></div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
-      <div class="award-preview-panel" data-preview-panel="simulation">
-        <div class="award-preview-head">
-          <div>
+        <div class="award-preview-panel" data-preview-panel="simulation">
+          <div class="award-preview-top">
             <div class="award-preview-meta" data-zh>相关报道</div><div class="award-preview-meta" data-en>Related Coverage</div>
-            <div class="award-preview-title" data-zh>国际商务决策模拟大赛</div><div class="award-preview-title" data-en>International Business Simulation Competition</div>
-            <div class="award-preview-sub" data-zh>这一版把切换动作控制在下方预览区，鼠标经过奖项卡不会再整块上上下下地“跳舞”。</div><div class="award-preview-sub" data-en>The calmer version keeps motion inside the preview panel so the cards no longer jump around on hover.</div>
-          </div>
-          <div class="award-preview-badge" data-zh>2 张截图位</div><div class="award-preview-badge" data-en>2 Preview Slots</div>
-        </div>
-        <div class="award-preview-grid">
-          <div class="award-article-card">
-            <div class="award-article-meta" data-zh>公众号文章预览</div><div class="award-article-meta" data-en>Article Preview</div>
-            <div class="award-article-title" data-zh>尖烽时刻国际赛决赛日全记录</div><div class="award-article-title" data-en>Final Round at CESIM</div>
-            <div class="award-article-kicker" data-zh>这里适合放比赛进程、决赛现场与成绩公布的完整图文截图。</div><div class="award-article-kicker" data-en>This slot suits a long-form recap of the final round, strategy process, and award result.</div>
-            <div class="award-shot award-shot--simulation-primary">
-              <div class="award-shot-topbar"></div>
-              <div class="award-shot-chip">Article 01</div>
-              <div class="award-shot-cover"></div>
-              <div class="award-shot-avatar"></div>
-              <div class="award-shot-lines"><span class="is-long"></span><span class="is-long"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-short"></span></div>
+            <div class="award-preview-pager" data-report-pager>
+              <button class="award-preview-nav" type="button" data-report-dir="-1" aria-label="Previous report">‹</button>
+              <span class="award-preview-count" data-report-count>1 / 2</span>
+              <button class="award-preview-nav" type="button" data-report-dir="1" aria-label="Next report">›</button>
             </div>
           </div>
-          <div class="award-article-card">
-            <div class="award-article-meta" data-zh>公众号文章预览</div><div class="award-article-meta" data-en>Article Preview</div>
-            <div class="award-article-title" data-zh>团队复盘、分工策略与赛后采访</div><div class="award-article-title" data-en>Team Strategy and Post-Match Recap</div>
-            <div class="award-article-kicker" data-zh>第二张适合换成团队采访、复盘总结或幕后花絮的整图。</div><div class="award-article-kicker" data-en>The second screenshot can be replaced with a team interview or post-event recap.</div>
-            <div class="award-shot award-shot--simulation-secondary">
-              <div class="award-shot-topbar"></div>
-              <div class="award-shot-chip">Article 02</div>
-              <div class="award-shot-cover"></div>
-              <div class="award-shot-avatar"></div>
-              <div class="award-shot-lines"><span class="is-long"></span><span class="is-mid"></span><span class="is-mid"></span><span class="is-short"></span><span class="is-short"></span></div>
-            </div>
+          <div class="award-report-stage">
+            <article class="award-report-page is-active">
+              <div class="award-report-scroll">
+                <img
+                    src="images/IMG_0004.JPG"
+                    alt="复旦大学留学生创新创业大赛公众号截图"
+                    class="award-report-image"
+                  />
+
+              </div>
+            </article>
+            <article class="award-report-page">
+              <div class="award-report-scroll">
+                <img
+                    src="images/IMG_0005.JPG"
+                    alt="复旦大学留学生创新创业大赛公众号截图"
+                    class="award-report-image"
+                  />
+              </div>
+            </article>
           </div>
         </div>
-      </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -1434,39 +1508,170 @@ renderEduPreview(activeEduKey);
 syncEduCardState();
 
 const awardPreviewCards=Array.from(document.querySelectorAll('.award-card.is-previewable'));
+const awardStaticCards=Array.from(document.querySelectorAll('.award-card:not(.is-previewable)'));
+const awardsLayout=document.querySelector('.awards-layout');
+const awardsList=document.querySelector('.awards-list');
+const awardsSection=document.getElementById('awards');
+const awardPreview=document.getElementById('awardPreview');
 const awardPreviewPanels=Array.from(document.querySelectorAll('.award-preview-panel'));
-const awardsPreview=document.getElementById('awardsPreview');
-let activeAwardPreviewKey=awardPreviewCards.find(card=>card.classList.contains('is-selected'))?.dataset.previewTarget||awardPreviewCards[0]?.dataset.previewTarget||'';
+const awardReportControllers=new Map();
+let activeAwardPreviewKey=awardPreviewCards[0]?.dataset.previewTarget||'';
+let awardPreviewVisible=false;
+let awardHeightFrame=0;
 
-function syncAwardPreview(){
-  awardPreviewCards.forEach(card=>{
-    const isActive=card.dataset.previewTarget===activeAwardPreviewKey;
-    card.classList.toggle('is-selected',isActive);
-    card.setAttribute('aria-pressed',isActive?'true':'false');
+function updateAwardSidecarHeight(){
+  if(!awardsLayout||!awardsList)return;
+  cancelAnimationFrame(awardHeightFrame);
+  awardHeightFrame=requestAnimationFrame(()=>{
+    if(window.innerWidth<=900){
+      awardsLayout.style.removeProperty('--award-sidecar-height');
+      return;
+    }
+    const nextHeight=Math.ceil(awardsList.getBoundingClientRect().height);
+    if(nextHeight>0)awardsLayout.style.setProperty('--award-sidecar-height',`${nextHeight}px`);
   });
-  awardPreviewPanels.forEach(panel=>{
-    panel.classList.toggle('is-active',panel.dataset.previewPanel===activeAwardPreviewKey);
-  });
-  if(awardsPreview)awardsPreview.classList.toggle('is-visible',Boolean(activeAwardPreviewKey));
 }
 
-function setActiveAwardPreview(key){
-  if(!key||key===activeAwardPreviewKey)return;
-  activeAwardPreviewKey=key;
-  syncAwardPreview();
+const awardListResizeObserver=window.ResizeObserver&&awardsList?new ResizeObserver(()=>updateAwardSidecarHeight()):null;
+awardListResizeObserver?.observe(awardsList);
+
+function syncAwardReportPanel(panel){
+  const controller=awardReportControllers.get(panel);
+  if(!controller)return;
+  const safeIndex=Math.max(0,Math.min(controller.currentIndex,controller.pages.length-1));
+  controller.currentIndex=safeIndex;
+  controller.pages.forEach((page,index)=>{
+    const isActive=index===safeIndex;
+    page.classList.toggle('is-active',isActive);
+    const scroll=page.querySelector('.award-report-scroll');
+    if(isActive&&scroll)scroll.scrollTop=0;
+  });
+  if(controller.countNode)controller.countNode.textContent=`${safeIndex+1} / ${controller.pages.length}`;
+  if(controller.prevBtn)controller.prevBtn.disabled=safeIndex===0;
+  if(controller.nextBtn)controller.nextBtn.disabled=safeIndex===controller.pages.length-1;
+}
+
+function initAwardReportControllers(){
+  document.querySelectorAll('.award-report-sheet').forEach(sheet=>{
+    sheet.classList.toggle('has-image',!!sheet.querySelector('.award-report-image'));
+  });
+  awardPreviewPanels.forEach(panel=>{
+    const pages=Array.from(panel.querySelectorAll('.award-report-page'));
+    if(!pages.length)return;
+    const countNode=panel.querySelector('[data-report-count]');
+    const prevBtn=panel.querySelector('[data-report-dir="-1"]');
+    const nextBtn=panel.querySelector('[data-report-dir="1"]');
+    const controller={pages,countNode,prevBtn,nextBtn,currentIndex:0};
+    awardReportControllers.set(panel,controller);
+    prevBtn?.addEventListener('click',e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      if(controller.currentIndex<=0)return;
+      controller.currentIndex-=1;
+      syncAwardReportPanel(panel);
+    });
+    nextBtn?.addEventListener('click',e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      if(controller.currentIndex>=controller.pages.length-1)return;
+      controller.currentIndex+=1;
+      syncAwardReportPanel(panel);
+    });
+    syncAwardReportPanel(panel);
+  });
+}
+
+function renderAwardPreview(key){
+  const next=awardPreviewPanels.some(panel=>panel.dataset.previewPanel===key)?key:(awardPreviewCards[0]?.dataset.previewTarget||'');
+  activeAwardPreviewKey=next;
+  awardPreviewPanels.forEach(panel=>{
+    const isActive=panel.dataset.previewPanel===activeAwardPreviewKey;
+    panel.classList.toggle('is-active',isActive);
+    if(isActive)syncAwardReportPanel(panel);
+  });
+  if(awardPreview)awardPreview.scrollTop=0;
+}
+
+function syncAwardCardState(){
+  awardPreviewCards.forEach(card=>{
+    const isActive=awardPreviewVisible&&card.dataset.previewTarget===activeAwardPreviewKey;
+    card.classList.toggle('is-selected',isActive);
+    card.setAttribute('aria-expanded',isActive?'true':'false');
+  });
+  awardsLayout?.classList.toggle('is-preview-open',awardPreviewVisible&&window.innerWidth>900);
+  updateAwardSidecarHeight();
+}
+
+function showAwardPreview(card){
+  if(!awardPreview)return;
+  activeAwardPreviewKey=card.dataset.previewTarget||activeAwardPreviewKey;
+  renderAwardPreview(activeAwardPreviewKey);
+  awardPreviewVisible=true;
+  awardPreview.classList.add('is-visible');
+  syncAwardCardState();
+}
+
+function hideAwardPreview(){
+  if(!awardPreview)return;
+  awardPreviewVisible=false;
+  awardPreview.classList.remove('is-visible');
+  syncAwardCardState();
 }
 
 awardPreviewCards.forEach(card=>{
-  card.addEventListener('click',()=>setActiveAwardPreview(card.dataset.previewTarget||''));
+  card.addEventListener('mouseenter',()=>showAwardPreview(card));
+  card.addEventListener('focus',()=>showAwardPreview(card));
+  card.addEventListener('click',()=>showAwardPreview(card));
   card.addEventListener('keydown',e=>{
     if(e.key==='Enter'||e.key===' '){
       e.preventDefault();
-      setActiveAwardPreview(card.dataset.previewTarget||'');
+      showAwardPreview(card);
     }
   });
 });
 
-syncAwardPreview();
+awardStaticCards.forEach(card=>{
+  card.addEventListener('mouseenter',()=>{
+    if(window.innerWidth>900)hideAwardPreview();
+  });
+  card.addEventListener('focus',()=>hideAwardPreview());
+});
+
+awardsList?.addEventListener('focusout',e=>{
+  if(!e.relatedTarget||(!awardsList.contains(e.relatedTarget)&&!awardPreview?.contains(e.relatedTarget)))hideAwardPreview();
+});
+awardsList?.addEventListener('mouseleave',e=>{
+  if(window.innerWidth<=900)return;
+  if(e.relatedTarget&&awardPreview?.contains(e.relatedTarget))return;
+  hideAwardPreview();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&awardPreviewVisible)hideAwardPreview();
+});
+awardPreview?.addEventListener('mouseleave',e=>{
+  if(window.innerWidth<=900)return;
+  if(e.relatedTarget&&(awardsList?.contains(e.relatedTarget)||awardPreview.contains(e.relatedTarget)))return;
+  hideAwardPreview();
+});
+window.addEventListener('scroll',()=>{
+  if(!awardPreviewVisible||!awardsSection||window.innerWidth<=900)return;
+  const rect=awardsSection.getBoundingClientRect();
+  if(rect.bottom<140||rect.top>window.innerHeight-140)hideAwardPreview();
+},{passive:true});
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900){
+    if(awardPreviewVisible)awardPreview?.classList.add('is-visible');
+  }else if(!awardPreviewVisible){
+    awardPreview?.classList.remove('is-visible');
+  }
+  syncAwardCardState();
+  updateAwardSidecarHeight();
+});
+
+initAwardReportControllers();
+renderAwardPreview(activeAwardPreviewKey);
+syncAwardCardState();
+updateAwardSidecarHeight();
 
 function getPhotoController(realIdx){
   return photoCarouselControllers.get(realIdx)||null;
@@ -1931,7 +2136,7 @@ let sectionScrollLocked=false;
 let sectionSnapTimer=0;
 
 function getScrollableAncestor(node){
-  return node?.closest('.edu-sidecar')||null;
+  return node?.closest('.award-report-scroll, .edu-sidecar')||null;
 }
 
 function canScrollInside(el,deltaY){
@@ -2008,6 +2213,12 @@ window.addEventListener('wheel',e=>{
   }
   const interactive=e.target.closest('input, textarea, select, [contenteditable="true"]');
   if(interactive)return;
+  const awardReportScroll=e.target.closest('.award-report-scroll');
+  if(awardReportScroll){
+    if(canScrollInside(awardReportScroll,e.deltaY))return;
+    e.preventDefault();
+    return;
+  }
   const scrollableAncestor=getScrollableAncestor(e.target);
   if(canScrollInside(scrollableAncestor,e.deltaY))return;
   const direction=e.deltaY>0?1:-1;
