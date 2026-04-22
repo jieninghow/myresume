@@ -319,6 +319,16 @@ html:not(.gallery-ready) .gallery-slide:first-of-type{display:flex;flex:1;min-he
 .photo-carousel-item{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(.16,1,.3,1)}
 .photo-carousel-item.is-active{opacity:1;pointer-events:auto}
 .photo-carousel-item img,.photo-carousel-item .slide-photo-ph{width:100%;height:100%}
+.media-status{position:absolute;inset:18px;display:flex;align-items:center;justify-content:center;padding:18px;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;z-index:4}
+.award-report-page .media-status{inset:0}
+.media-status-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:min(100%,220px);padding:16px 20px;border-radius:18px;background:rgba(255,255,255,.88);border:1px solid rgba(29,78,216,.12);box-shadow:0 18px 36px rgba(29,78,216,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);text-align:center}
+.media-status-spinner{width:28px;height:28px;border-radius:999px;border:2.5px solid rgba(29,78,216,.14);border-top-color:var(--blue);animation:mediaSpin .9s linear infinite}
+.media-status-text{font-size:13px;font-weight:600;line-height:1.4;color:var(--blue-dark);letter-spacing:.01em}
+.media-status-text-error{display:none;color:#92400e}
+.photo-carousel-item.is-media-loading .media-status,.photo-carousel-item.is-media-error .media-status,.award-report-page.is-media-loading .media-status,.award-report-page.is-media-error .media-status{opacity:1;visibility:visible}
+.photo-carousel-item.is-media-loading img,.photo-carousel-item.is-media-error img,.award-report-page.is-media-loading .award-report-image,.award-report-page.is-media-error .award-report-image{opacity:0}
+.photo-carousel-item.is-media-error .media-status-spinner,.award-report-page.is-media-error .media-status-spinner,.photo-carousel-item.is-media-error .media-status-text-loading,.award-report-page.is-media-error .media-status-text-loading{display:none}
+.photo-carousel-item.is-media-error .media-status-text-error,.award-report-page.is-media-error .media-status-text-error{display:block}
 .photo-meta{--photo-meta-bg:#eef4ff;--photo-meta-bg-strong:#f8fbff;--photo-meta-border:rgba(29,78,216,.12);flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:9px 14px 10px;background:linear-gradient(135deg,var(--photo-meta-bg-strong),var(--photo-meta-bg));border-top:1px solid var(--photo-meta-border);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
 .photo-meta-copy{width:100%;min-width:0;max-width:100%;display:flex;align-items:center;justify-content:center}
 .photo-meta-text{font-size:12.5px;line-height:1.2;color:var(--ink);font-weight:500;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
@@ -436,7 +446,7 @@ html:not(.gallery-ready) .gallery-slide:first-of-type{display:flex;flex:1;min-he
 .award-preview-nav:disabled{opacity:.38;cursor:default}
 .award-preview-count{font-size:12px;font-weight:700;color:var(--blue-dark);letter-spacing:.04em;min-width:46px;text-align:center}
 .award-report-stage{margin-top:14px;display:flex;flex:1;min-height:0;overflow:hidden}
-.award-report-page{display:none;flex:1;min-height:0}
+.award-report-page{display:none;flex:1;min-height:0;position:relative}
 .award-report-page.is-active{display:flex;animation:fUp .36s cubic-bezier(.16,1,.3,1)}
 .award-report-scroll{flex:1;min-height:0;overflow-y:auto;padding-right:4px;scrollbar-gutter:stable}
 .award-report-scroll::-webkit-scrollbar{width:8px}
@@ -445,7 +455,7 @@ html:not(.gallery-ready) .gallery-slide:first-of-type{display:flex;flex:1;min-he
 .award-report-sheet.has-image{min-height:0;padding:0;background:transparent;border:none;box-shadow:none;overflow:visible}
 .award-report-sheet.has-image::before,.award-report-sheet.has-image::after{display:none}
 .award-report-sheet.has-image>:not(.award-report-image){display:none}
-.award-report-image{display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:18px;border:1px solid rgba(29,78,216,.12);background:white;box-shadow:0 16px 34px rgba(29,78,216,.08)}
+.award-report-image{display:block;max-width:100%;width:auto;height:auto;margin:0 auto;border-radius:18px;border:1px solid rgba(29,78,216,.12);background:white;box-shadow:0 16px 34px rgba(29,78,216,.08);transition:opacity .24s ease}
 .award-report-sheet::before{content:'';position:absolute;left:0;right:0;top:0;height:30%;background:linear-gradient(180deg,rgba(219,234,254,.22),rgba(219,234,254,0));pointer-events:none}
 .award-report-sheet::after{content:'';position:absolute;left:18px;right:18px;top:58px;height:1px;background:linear-gradient(90deg,rgba(29,78,216,0),rgba(29,78,216,.16),rgba(29,78,216,0));opacity:.55;pointer-events:none}
 .award-report-sheet-header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px}
@@ -674,8 +684,9 @@ body.lang-zh [data-en]{display:none}
 .s-cream2{background:var(--cream2)}
 
 /* Smooth image hover zoom */
-.slide-photo img{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.slide-photo img{transition:opacity .24s ease,transform .6s cubic-bezier(.16,1,.3,1)}
 .gallery-slide:hover .slide-photo img{transform:scale(1.03)}
+@keyframes mediaSpin{to{transform:rotate(360deg)}}
 
 </style>
 </head>
@@ -1232,16 +1243,90 @@ function ri(){return active[cur]??active[0]??0}
 function getGroupBySlideIndex(index){
   return GALLERY_GROUP_MAP[allSlides[index]?.dataset.cat||SD[index]?.cat]||'activity';
 }
+function getManagedMediaHost(img){
+  return img?.closest('.photo-carousel-item, .award-report-page')||null;
+}
+function ensureManagedMediaStatus(host){
+  if(!host)return null;
+  let status=Array.from(host.children).find(child=>child.classList?.contains('media-status'))||null;
+  if(status)return status;
+  status=document.createElement('div');
+  status.className='media-status';
+  status.setAttribute('aria-hidden','true');
+  const card=document.createElement('div');
+  card.className='media-status-card';
+  const spinner=document.createElement('span');
+  spinner.className='media-status-spinner';
+  spinner.setAttribute('aria-hidden','true');
+  const loadingZh=document.createElement('span');
+  loadingZh.className='media-status-text media-status-text-loading';
+  loadingZh.dataset.zh='';
+  loadingZh.textContent='照片加载中';
+  const loadingEn=document.createElement('span');
+  loadingEn.className='media-status-text media-status-text-loading';
+  loadingEn.dataset.en='';
+  loadingEn.textContent='Loading photo';
+  const errorZh=document.createElement('span');
+  errorZh.className='media-status-text media-status-text-error';
+  errorZh.dataset.zh='';
+  errorZh.textContent='图片暂时加载失败';
+  const errorEn=document.createElement('span');
+  errorEn.className='media-status-text media-status-text-error';
+  errorEn.dataset.en='';
+  errorEn.textContent='Photo failed to load';
+  card.append(spinner,loadingZh,loadingEn,errorZh,errorEn);
+  status.appendChild(card);
+  host.appendChild(status);
+  return status;
+}
+function clearManagedImageState(img){
+  const host=getManagedMediaHost(img);
+  if(!host)return;
+  host.classList.remove('is-media-loading','is-media-ready','is-media-error');
+}
+function setManagedImageState(img,state){
+  const host=getManagedMediaHost(img);
+  if(!host)return;
+  ensureManagedMediaStatus(host);
+  host.classList.toggle('is-media-loading',state==='loading');
+  host.classList.toggle('is-media-ready',state==='ready');
+  host.classList.toggle('is-media-error',state==='error');
+}
+function syncManagedImageState(img){
+  if(!img)return;
+  if(!img.getAttribute('src')){
+    clearManagedImageState(img);
+    return;
+  }
+  if(img.complete){
+    setManagedImageState(img,img.naturalWidth>0?'ready':'error');
+    return;
+  }
+  setManagedImageState(img,'loading');
+}
+function bindManagedImageState(img){
+  if(!img||img.dataset.mediaStateBound==='true')return;
+  img.dataset.mediaStateBound='true';
+  const host=getManagedMediaHost(img);
+  if(host)ensureManagedMediaStatus(host);
+  img.addEventListener('load',()=>setManagedImageState(img,'ready'));
+  img.addEventListener('error',()=>setManagedImageState(img,'error'));
+  syncManagedImageState(img);
+}
 function hydrateDeferredImage(img){
   if(!img||!img.dataset.src||img.dataset.hydrated==='true')return false;
+  bindManagedImageState(img);
+  setManagedImageState(img,'loading');
   img.src=img.dataset.src;
   img.dataset.hydrated='true';
+  syncManagedImageState(img);
   return true;
 }
 function hydrateDeferredImages(root){
   if(!root)return 0;
   let hydratedCount=0;
   root.querySelectorAll('img[data-src]').forEach(img=>{
+    bindManagedImageState(img);
     if(hydrateDeferredImage(img))hydratedCount+=1;
   });
   return hydratedCount;
@@ -1635,6 +1720,10 @@ function initAwardReportControllers(){
   awardPreviewPanels.forEach(panel=>{
     const pages=Array.from(panel.querySelectorAll('.award-report-page'));
     if(!pages.length)return;
+    pages.forEach(page=>{
+      ensureManagedMediaStatus(page);
+      page.querySelectorAll('img').forEach(bindManagedImageState);
+    });
     const countNode=panel.querySelector('[data-report-count]');
     const prevBtn=panel.querySelector('[data-report-dir="-1"]');
     const nextBtn=panel.querySelector('[data-report-dir="1"]');
@@ -2028,6 +2117,10 @@ function initPhotoCarousels(){
     if(!carousel)return;
     const items=Array.from(carousel.querySelectorAll('.photo-carousel-item'));
     if(!items.length)return;
+    items.forEach(item=>{
+      ensureManagedMediaStatus(item);
+      item.querySelectorAll('img').forEach(bindManagedImageState);
+    });
     let currentIndex=Math.max(items.findIndex(item=>item.classList.contains('is-active')),0);
     function setPhoto(nextIndex){
       currentIndex=((nextIndex%items.length)+items.length)%items.length;
